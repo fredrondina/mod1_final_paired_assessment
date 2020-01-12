@@ -23,4 +23,10 @@ class StudentTest < Minitest::Test
     @student.log_score(78)
     assert_equal @student.scores, [89, 78]
   end
+
+  def test_grade_can_return_average_score
+    @student.log_score(89)
+    @student.log_score(78)
+    assert_equal @student.grade, 83.5
+  end
 end
