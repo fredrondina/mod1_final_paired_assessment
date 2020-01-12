@@ -20,5 +20,11 @@ class CourseTest < Minitest::Test
     assert_equal @course.students, []
   end
 
-
+  def test_students_can_be_enrolled
+    refute @course.full?
+    @course.enroll(@student1)
+    @course.enroll(@student2)
+    assert @course.full?
+    assert_equal @course.students.length, 2
+  end
 end
